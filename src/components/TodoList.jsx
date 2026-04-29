@@ -1,4 +1,5 @@
 import { useTodo } from "../context/TodoContext";
+import TodoItem from "./TodoItem";
 
 export default function TodoList() {
   const { list } = useTodo();
@@ -6,7 +7,7 @@ export default function TodoList() {
   return (
     <>
       {list.map((item) => (
-        <p>{item.title}</p>
+        <TodoItem {...item} />
       ))}
     </>
   );
