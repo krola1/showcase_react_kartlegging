@@ -13,8 +13,19 @@ export const TodoProvider = ({ children }) => {
       done: false,
     },
   ]);
+  const addItem = (text) => {
+    const newTodo = {
+      id: crypto.randomUUID(),
+      createdAt: Date.now(),
+      title: text,
+      done: false,
+    };
 
-  const providerObj = { list };
+    setList((prevTodo) => [...prevTodo, newTodo]);
+  };
+
+  //-------------------------------------------------
+  const providerObj = { list, addItem };
   return (
     <TodoContext.Provider value={providerObj}>{children}</TodoContext.Provider>
   );
