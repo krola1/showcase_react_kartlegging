@@ -1,7 +1,13 @@
+import { useTodo } from "../context/TodoContext";
+
 export default function TodoList() {
+  const { list } = useTodo();
+
   return (
     <>
-      <h3>TodoList</h3>
+      {list.map((item) => (
+        <p>{item}</p>
+      ))}
     </>
   );
 }

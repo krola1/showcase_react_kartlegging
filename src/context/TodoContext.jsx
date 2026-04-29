@@ -1,9 +1,12 @@
+import { useState } from "react";
 import { useContext, createContext } from "react";
 
 const TodoContext = createContext();
 
 export const TodoProvider = ({ children }) => {
-  const providerObj = {};
+  const [list, setList] = useState(["lars"]);
+
+  const providerObj = { list };
   return (
     <TodoContext.Provider value={providerObj}>{children}</TodoContext.Provider>
   );
