@@ -6,7 +6,7 @@ export default function TodoList() {
   return (
     <>
       {list.map((item) => (
-        <p>{item}</p>
+        <p>{item.title}</p>
       ))}
     </>
   );

@@ -4,7 +4,15 @@ import { useContext, createContext } from "react";
 const TodoContext = createContext();
 
 export const TodoProvider = ({ children }) => {
-  const [list, setList] = useState(["lars"]);
+  const [list, setList] = useState([
+    {
+      id: crypto.randomUUID(),
+      // eslint-disable-next-line react-hooks/purity
+      createdAt: Date.now(),
+      title: "Fisk",
+      done: false,
+    },
+  ]);
 
   const providerObj = { list };
   return (
