@@ -1,18 +1,12 @@
 import { useState } from "react";
 import { useContext, createContext } from "react";
+import { useLocalStorage } from "../hooks/useLocalStorage";
 
 const TodoContext = createContext();
 
 export const TodoProvider = ({ children }) => {
-  const [list, setList] = useState([
-    {
-      id: crypto.randomUUID(),
-      // eslint-disable-next-line react-hooks/purity
-      createdAt: Date.now(),
-      title: "Fisk",
-      done: false,
-    },
-  ]);
+  const [list, setList] = useLocalStorage("kartlegging", []);
+
   const addItem = (text) => {
     const newTodo = {
       id: crypto.randomUUID(),
